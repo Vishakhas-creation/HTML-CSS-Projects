@@ -3,88 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather-App</title>
-    <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Amazon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/css/flag-icons.min.css">
+
 </head>
 <body>
-    <div id="card">
-        <div id="search">
-            <input type="text" placeholder="Enter city Name" spellcheck="false"></input>
-            <button><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
-        <div id="error">
-            <p> City Name Does Not Exist! </p>
-        </div>
-        <div id="weather">
-            <img src="weather.png" alt="image" id="weather-image">
-            <h1 id="temp">22°C</h1>
-            <h2 id="City">Switzerland</h2>
-            <div id="details">
-                <div id="col">
-                    <img src="humidity.png">
-                    <div>
-                        <p id="humidity">50%</p>
-                        <p>Humidity</p>
+    <header>
+        <nav>
+            <div class="navbar">
+                <div class="nav_logo border" >
+                    <div class="logo_image"></div>
+                </div>
+
+                <div class="nav_address border2">
+                    <p class="address_first">Deliver to</p>
+                    <div class="add_icon">
+                       <i class="fa-solid fa-location-dot"></i>
+                        <p class="address_second">India</p>
                     </div>
                 </div>
-                 <div id="col">
-                    <img src="wind.png">
-                    <div>
-                        <p id="wind">15km/hr</p>
-                        <p>Wind-Speed</p>
-                    </div>
+                <div class="search_box">
+                    <select class="select_input">
+                        <option>All</option>
+                    </select>
+                    <input placeholder="Search Amazon.in" class="input_holder">
+                    <div class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                </div>
+                 <div class="login border">
+                <p class="sign_in ">Hello, sign in</p>
+                <p class="select"> Accounts & Lists</p>
+               </div>
+                <div class="nav_return border">
+                <p class="sign_in ">Return</p>
+                <p class="select"> & Orders</p>
+               </div>
+               <div class="nav_cart">
+                <div class="cart_icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                <p class="nav_cart">Cart</p>
+               </div>
+            </div>
+            <div class="pannel border">
+                
+               <a href="#"> <div class="icon"><i class="fa-solid fa-bars"></i></div></a>
+                <p>All</p>
+                 <span class="box2 border"> Today's Deals</span>
+                 <span class="box3 border">Prime Video</span>
+                 <span class="box4 border">Registry</span>
+                 <span class="box5 border">Gift Cards</span>
+                 <span class="box6 border">Customer's Service</span>
+                 <span class="box7 border">Sell</span>
+                 <div class="right_box">
+                    Shop Deals in Electronics
                 </div>
             </div>
+        </nav>
+    </header>
+    <div class="hero_section">
+        <div class="hero_message">
+           <p>You are on amazon.com. You can also shop on Amazon India for millions of products with fast local delivery.
+            <a href="#" class="msg">Click here to go to amazon.in</a>
+         </p>
         </div>
-    </div>
-    <script>
-        const apiKey ="d433073a2cf8fa1d74b952c2d8879752";
-        const apiUrl ="https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
-
-        const searchBox = document.querySelector("#search input");
-        const searchButton = document.querySelector("#search button");
-        const weatherIcon = document.querySelector("#weather-image");
-
-        async function checkWeather(city){
-            const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
-
-            if(response.status == 404){
-                document.querySelector("#error").style.display = "block";
-                document.querySelector("#weather").style.display = "none";
-            }
-            else{
-                 var data = await response.json();
-            
-            document.querySelector("#City").innerHTML = data.name;
-            document.querySelector("#temp").innerHTML =Math.round(data.main.temp) + '°C';
-            document.querySelector("#humidity").innerHTML = data.main.humidity + "%";
-            document.querySelector("#wind").innerHTML = data.wind.speed + "Km/hr";
-            
-            if(data.weather[0].main == 'Clouds'){
-               weatherIcon.src = "./cloud.png";
-            }
-            else if(data.weather[0].main == 'Clear'){
-               weatherIcon.src = "./sun.png";
-            }
-             else if(data.weather[0].main == 'Rain'){
-               weatherIcon.src = "./rainy-day.png";
-             }
-              else if(data.weather[0].main == 'Drizzle'){
-               weatherIcon.src = "./light-rain.png";
-             }
-              else if(data.weather[0].main == 'Mist'){
-               weatherIcon.src = "./cloud(1).png";
-             }
-             document.querySelector("#weather").style.display = "block";
-             document.querySelector("#error").style.display = "none";
-        }
-
-            }
-        searchButton.addEventListener("click", ()=>{
-            checkWeather(searchBox.value);
-        })
+     </div>
+     <div class="shopping_section">
+     <div class="square1 box">
+        <h2>Get your game on </h2>
+       <a href="#">
+        <div class="image" style="background-image: url('game_image.jpg')">
+        </div>
+        </a>
+        <p class="games"><a href="#">Shop gaming</a></p>
+     </div>
+     <div class="square2 box">
+        <h2> Home Decor</h2>
+        <a href="#"> 
+            <div class="image" style=" background-image: url('image2.jpg')"></div>
+            </a>
+            <p class="games"><a href="#"> Shop home decors</a></p>
         
-    </script>
-</body>
+     </div>
+     
+     <div class="square3 box">
+        <h2>Electronics</h2>
+        <a href="#">
+            <div class="image" style="background-image: url('image3.jpg')"></div>
+            </a>
+            <p class="games"><a href="#">Shop now</a></p>
+        
+     </div>
+     <div class="square4 box">
+        <h2> Winter Section</h2>
+        <div class="image" style="background-image: url(image5.jpg)"></div>
+        <p class="games"><a href="#">Buy now</a></p>
+     </div>
+     <div class="square5 box">
+        <h2>Beauty Pickss</h2>
+        <div class="image" style="background-image: url('beauty_picks.jpg')"></div>
+        <p class="games"><a href="#">Buy yours Fav</a></p>
+     </div>
+     <div class="square6 box">
+        <h2>Pet Care Items</h2>
+        <div class="image" style="background-image: url(pet_careitems.jpg)"></div>
+        <p class="games"><a href="#">Buy Any</a></p>
+     </div>
+     <div class="square7 box">
+        <h2>Cell Phones</h2>
+        <div class="image" style="background-image: url('iphone.png')"></div>
+        <p class="games"><a href="#">Get the latest</a></p>
+     </div>
+     <div class="square8 box">
+        <h2>Kitchen Essentials</h2>
+        <div class=" image" style="background-image: url('kitchen_essential.jpg')"></div>
+        <p class="games">
+            <a href="#">Deal now</a>
+        </p>
+     </div>
+     </div>
+     <footer>
+        <hr>
+        <div class="footer_pannel1">
+        <h2 class="recommends">See personalized recommendations</h2>
+        <div class="enter_box">
+        <p class="enter_page"><a href="#"> Sign in</a></p>
+        <p class="new">New customer? Start here</p>
+        </div>
+        <div class="footer_pannel2">
+            <p>
+                <a href="#">Back to Top</a>
+            </p>
+        </div>
+        <div class="footer_pannel3">
+            <ul><p class="know_more">Get to Know Us</p>
+                <div class="class1">
+             <li><a href="#"> About Amazon</a></li>
+             <li> <a href="#">Careers</a></li>
+             <li><a href="#">Press Releases</a></li>
+              <li><a href="#">Amazon Science</a></li>
+              </div>
+            </ul>
+           
+           <div class="class2">
+           <p class="know_more">Make Money with Us</p>
+           <div class="class1">
+             <li><a href="#">Sell products on Amazon</a></li>
+             <li><a href="#">Sell on Amazon Business</a></li>
+             <li><a href="#">Sell apps on Amazon</a></li>
+             <li><a href="#">Become an Affiliate</li>
+             <li><a href="#">Advertise Your Products</li>
+             <li><a href="#">Self-Publish with Us</li>
+             <li><a href="#">Host an Amazon Hub</li>
+             <li><b>›</b> <a href="#">See More Make Money with Us</a></li>
+           </div>
+        </div>
+        <div class="class3">
+            <p class="know_more">Amazon Payment Products</p>
+            <div class="class1">
+            <li><a href="#">Amazon Business Card</a></li>
+            <li><a href="#">Shop with Points</a></li>
+            <li><a href="#">Reload Your Balance</a></li>
+            <li><a href="#">Amazon Currency Converter</a></li>
+            </div>
+        </div>
+        <div class="class4">
+            <p class="know_more">Let Us Help You</p>
+            <div class="class1">
+            <li><a href="#"></a></li>Amazon and COVID-19
+            <li> <a href="#">Your Account</a></li>
+            <li><a href="#">Your Orders</a></li>
+            <li><a href="#">Shipping Rates & Policies</a></li>
+            <li><a href="#">Returns & Replacements</a></li>
+            <li><a href="#">Manage Your Content and Devices</a></li>
+            <li><a href="Help"></a></li>
+            </div>
+        </div>
+        </div>
+        </div>
+        
+        <div class="footer-4">
+           <a href="#"> <div class="footer-image"></div></a>
+           <div class="footer-box2">
+            <div class="footer-icon1">
+               <i class="fa-solid fa-globe"></i>
+            </div>
+            <p>English</p>
+           </div>
+           <div class="footer-box3">
+            <div class="foter-icon2">
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+            </div>
+            <p>INR - Indian Rupee</p>
+           </div>
+           <div class="footer-box4">
+            <div class="footer-icon3">
+                <span class="fi fi-us"></span>
+
+            </div>
+            <p>United States</p>
+           </div>
+        </div>
+        <div class="footer-pannel5">
+            <div class="copywrite">
+                <p><a href="#"><pre>Conditions of Use    Privacy Notice    Consumer Health Data Privacy Disclosure    Your Ads Privacy Choices</pre></a>
+                </p>
+            </div>
+            <div class="copywrite">
+                <p><a href="#">© 1996-2025, Amazon.com, Inc. or its affiliates </a></p>
+            </div>
+        </div>
+     </footer>
+     
+    </body>
+        
 </html>
